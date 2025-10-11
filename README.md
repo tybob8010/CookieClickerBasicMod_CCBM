@@ -1,2 +1,3 @@
 # CookieClickerBasicMod_CCBM
-CookieClickerBasicMod(CCBM) is a mod for CookieClicker!🍪
+
+[CookieClicker](https://orteil.dashnet.org/cookieclicker/)の非公式MODです。
