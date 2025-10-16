@@ -1,2 +1,548 @@
 今度こそうまくいったかな？
 vscodeの方の名前変更
+
+
+
+FrozenCookieのREADME（和訳）(chatgpt)
+
+
+概要
+青いキャンディ片と銀のスプリンクルがのった、柔らかく少し崩れやすい食感の丸いクッキー。
+このクッキーは刻んだココナッツの上に置かれており、冬の祝祭的な雰囲気を演出している。
+テキストは含まれていない。全体のトーンは冬、氷のような雰囲気を示唆している。
+
+バージョン, ライセンス, GitHub Issues, 最終コミット
+
+⚠️ 警告：
+Auto Sweet と Auto Cast 100% Consistency Combo は試験的な機能です。
+それらを有効にすると、ゲームが壊れたり取り返しのつかない変更になる可能性があります。
+自己責任で使用してください！
+
+FrozenCookies
+
+Cookie Clicker を自動化するツール。
+
+✅ 使い始め
+
+- Steam: Steam ワークショップでサブスクライブ
+- Web 版: 以下をコンソールに貼る：
+
+  Game.LoadMod("https://github.erbkaiser.com/FrozenCookies/frozen_cookies.js");
+
+- Bookmarklet / Userscript: 「How to use（使い方）」セクションを参照
+
+目次（主なセクション）
+
+1. Compatibility（互換性）
+2. How to use（使い方）
+3. What can Frozen Cookies do?（できること）
+4. Changelogs（変更履歴）
+5. Planned Features and Known Issues（予定機能と既知の問題）
+6. All Options Explained（すべてのオプションの説明）
+7. Auto Cast and Combos（自動詠唱とコンボ）
+8. Efficiency Explained（効率の説明）
+9. Frozen Cookies Data（データ）
+10. Original FC Credits（クレジット）
+
+Compatibility（互換性）
+
+- 現在のバージョン：erb‑2.052.8
+- 対応：Cookie Clicker Web 版 2.052 と Steam 版 2.053
+- 他の多くの mod（例：CCSE）とは共存可能
+- 他の自動化 mod やオートクリック系とは互換性が無い可能性が高い
+- 一部のユーザーが「Cookie Monster」との併用で競合を報告している（Issue #1193 を参照）
+
+How to use（使い方）
+
+1. Cookie Clicker の右上に FrozenCookies ボタンが見えたら、mod はインストールされており準備完了
+2. ボタンをクリックしてメニューを開き、設定をするか「Recommended Settings（推奨設定）」を使う
+3. もしボタンが見えなければ、以下の方法でインストール
+
+Steam 版
+
+- ワークショップ経由（推奨）
+  ワークショップでサブスクライブ → Cookie Clicker を再起動またはリフレッシュ → Options の “Manage mods” で有効化
+
+- 手動インストール
+  Steam 版の FrozenCookies フォルダをダウンロード → mods/local ディレクトリに配置 → 他の FrozenCookies バリアントを無効化 → Cookie Clicker を再起動 → Options の “Manage mods” で有効化
+
+Web 版
+
+1. ブラウザの開発者ツール（F12 など）を開く
+2. Console タブに次を貼って実行：
+
+   Game.LoadMod("https://github.erbkaiser.com/FrozenCookies/frozen_cookies.js");
+
+3. コンソールに確認メッセージが表示されれば成功
+4. アクセス制限（ネットワーク制限など）でうまく読み込めない場合は：
+
+   Game.LoadMod("https://erbkaiser.github.io/FrozenCookies/frozen_cookies.js");
+
+   を試すか、ネットワーク管理者に相談
+
+Bookmarklet / Userscript
+
+- Bookmarklet: fc_bookmarklet_loader.js の内容をコピー → 新しいブックマークに貼る → Cookie Clicker を開いてクリック
+- Userscript: Tampermonkey をインストール → fc_userscript_loader.user.js にアクセス → “Install” をクリック → Cookie Clicker を開く
+
+What can Frozen Cookies do?（このツールの機能）
+
+- 大きな数値を見やすく短縮表示（例：1,234,567,890 → 1.235 billion）
+- 次に買うべき効率的なアイテムを計算
+- 効率に従って自動で購入
+- Golden Cookie が出たら即クリック
+- Heavenly Chips の管理・追跡
+- タイマー表示（次の Golden Cookie、Frenzy 残り時間、次の Heavenly Chip までの時間）
+- 他にも “次の購入までの時間” や “購入チェーンを完了するまでの時間” を表示
+- ゲーム操作のほとんどを自動化
+- 読み込んだときに最新版に自動更新
+- ただし「すべてのクッキーを食べる」わけではない
+
+※ “最も効率的” というのはスクリプトの計算に基づくもので、必ずしも最適でないこともある
+
+What’s new?（更新情報）
+
+展開可能（クリックで展開）
+過去の Changelog も展開可能
+上流（upstream）からの変更履歴含む
+
+Planned Features and Known Issues（予定機能と既知の問題）
+
+予定機能
+
+- コードと性能の改善
+- ユーザー設定のさらなる細分化
+
+既知の問題
+
+- 複雑なスクリプトゆえに遅延（ラグ）が出ることがある → 自動クリック速度を下げるなど調整を
+- Golden Cookie のタイマー表示が消えることがある → 次の Golden Cookie 出現で再表示される
+
+詳細や要望は GitHub Issues を参照
+
+All Options Explained（オプションの詳細解説）
+
+自動クリック系オプション
+
+機能名 | 説明
+---|---
+Autoclick | 大きいクッキーを自動クリック。値はクリック回数／秒
+Autofrenzy | Frenzy 時だけ自動クリック
+Autoclick GC | Golden / Wrath Cookie を即クリック
+Autoclick Reindeer | Reindeer（トナカイ）を即クリック
+Auto Fortune | ニュース表示（フォーチュン）を即クリック（注意：中には保存した方がいいものもある）
+
+自動購入オプション
+
+- Autobuy：最適なアイテムを自動で購入
+- その他のアップグレードも自動購入
+- ブラックリスト機能：特定の購入を除外
+- 建物の上限設定など
+
+その他の自動化オプション
+
+- バルク購入、自動昇格（Ascend）、Wrinkler 弾き、自動収穫など
+- 特定条件下での Dragon や Aura 操作
+- 複雑な自動詠唱、Auto Cast / Combo 系など
+
+表示・ログ・トラッキングオプション
+
+- 表示形式（RAW, FULL, INITIALS, SI, SCIENTIFIC）切替
+- Infobox 表示（次の購入、Frenzy 状態など）
+- ログ機能（オプション）
+- フレームレート設定
+- トラッキング & グラフ用統計
+
+Auto Cast と Combos（自動詠唱とコンボ）
+
+- Frozen Cookies は複数の方法で呪文を自動詠唱
+- コンボロジック優先
+- Double Cast FTHOF や 100% Consistency Combo などの高度な手法も含む
+- Auto Sweet は試験的機能、使うと戻せない操作もあるため注意
+
+Efficiency（効率性の計算）
+
+Frozen Cookies は独自の効率式を使って最適な購入を判断。
+一般形は次のような式：
+
+効率 = 1.15 × ( cost / CpS ) + ( cost / ΔCpS )
+
+ここで：
+
+- cost = アイテムの価格
+- CpS = 現在のクッキー生産速度
+- ΔCpS = その購入で増える生産速度
+
+ゴールデンクッキー等の効果も加味する計算がなされることがある
+
+Frozen Cookies Data（データ説明）
+
+このセクションでは、メニューや表示に使われる各種数値の意味を説明。
+例：
+
+- 次の購入
+- 購入チェーンの所要時間
+- ゴールデンクッキーの銀行的効果
+- CpS（生産速度）変化
+- タイマー・統計データ
+
+Original FC Credits（開発者クレジット）
+
+- Discord, IRC, コントリビュータ名など
+- 特に影響のあったユーザーや寄稿者への感謝
+- このプロジェクトの発展に関わった人々
+
+
+FrozenCookieのreadme（原文ママ）
+
+README
+A single round cookie with a soft, slightly crumbly texture, topped with blue candy pieces and silver sprinkles. The cookie rests on a bed of shredded coconut, creating a wintry, festive atmosphere. No text is present. The overall tone alludes to winter, a frozen atmosphere.
+
+Version License GitHub issues Last commit
+
+⚠️ WARNING:
+Auto Sweet and Auto Cast 100% Consistency Combo are experimental features.
+Enabling them can ruin your game or cause irreversible changes.
+Use at your own risk!
+
+FrozenCookies
+An automated Cookie Clicker tool.
+
+Quick Start
+Steam: Subscribe on Steam Workshop
+Web: Paste this in the console:
+Game.LoadMod("https://github.erbkaiser.com/FrozenCookies/frozen_cookies.js");
+Bookmarklet/Userscript: See 'How to use' below for details.
+Table of Contents
+Compatibility
+How to use
+What can Frozen Cookies do?
+Changelogs
+Planned Features and Known Issues
+All Options Explained
+Auto Cast and Combos
+Efficiency Explained
+Frozen Cookies Data
+Original FC Credits
+Compatibility
+Current version: erb-2.052.8
+Supports: Cookie Clicker web version 2.052 and Steam version 2.053
+
+FrozenCookies works with most other mods, including CCSE.
+It is likely not compatible with other automation mods or auto-clickers.
+
+Note: Some users have reported conflicts when using Cookie Monster together with FrozenCookies. For more information, see issue #1193.
+
+How to use
+If you see the FrozenCookies button at the top right of Cookie Clicker (replacing the Info button), the mod is installed and ready to use.
+
+Click the button to open the FrozenCookies menu, where you can configure settings or use the Recommended Settings for a quick start. See below for installation instructions if you do not see the button.
+
+Steam
+Workshop: (Recommended)
+Subscribe at Steam Workshop.
+Restart or refresh Cookie Clicker.
+Enable Frozen Cookies in 'Manage mods' under Options.
+Manual Install:
+Download the Steam folder from here.
+Place the FrozenCookies folder into your mods/local directory.
+Remove or disable any other FrozenCookies variants.
+Restart or refresh Cookie Clicker.
+Enable Frozen Cookies in 'Manage mods' under Options.
+Web Version
+Open your browser's developer tools (usually F12).
+Go to the Console tab.
+Paste and run:
+Game.LoadMod("https://github.erbkaiser.com/FrozenCookies/frozen_cookies.js");
+You should see a confirmation message in the console.
+You might need to enable pasting in the browser console first, it will tell you if that is the case
+Some net nanny programs may block my website. In that case, try to load from Game.LoadMod("https://erbkaiser.github.io/FrozenCookies/frozen_cookies.js");. If that also fails, contact your internet administrator and ask them to unblock github.erbkaiser.com
+Bookmarklet
+Copy the contents (not the URL) of fc_bookmarklet_loader.js.
+Create a new bookmark and paste the code as its URL.
+Open Cookie Clicker and click the bookmark.
+Userscript
+Install Tampermonkey for Chrome or Tampermonkey for Firefox.
+Visit fc_userscript_loader.user.js.
+Click 'Install' in the upper right.
+Open Cookie Clicker.
+What can Frozen Cookies do?
+Shortens large numbers for readability (e.g., 1,234,567,890 becomes 1.235 billion)
+Calculates what the next most efficient purchase should be*
+Can automatically buy the most efficient purchase for you*
+Analyzes Golden Cookies and can auto-click them as soon as they appear
+Tracks and analyzes Heavenly Chips
+Shows timers for: next Golden Cookie, time left in Frenzy, and time until next Heavenly Chip
+Shows additional timers for: time to Golden Cookie Bank, time to next purchase, and time to complete a purchase chain
+Provides detailed efficiency information for buildings and upgrades
+Automates nearly every possible action in Cookie Clicker
+Automatically updates to the latest version when loaded
+May not eat all of your cookies
+*Note: "Most efficient" means the best option according to the script's current calculations, which may not always be perfect.
+
+What's new?
+Click to expand!
+Older Changelogs
+Click to expand!
+Changelogs from upstream
+Click to expand!
+Planned Features and Known Issues
+Planned Features
+General code and performance improvements
+Increased customization for user preferences
+Known Issues
+Lag: Frozen Cookies can cause noticeable lag due to its complexity. Lower the auto-click speed if performance drops.
+Golden Cookie timers: Occasionally, Golden Cookie timers may disappear from the infobox. They will reappear with the next Golden Cookie spawn.
+For more issues or feature requests, see the GitHub issues page. Contributions and suggestions are welcome!
+
+What do these options actually do, in detail?
+Auto Clicking Options
+Option	Description
+Autoclick	Simulates clicking the big cookie automatically. Value sets clicks per second (e.g., 250 for web, up to 1000 for fast Steam PCs). Increase until issues appear, then lower. May prevent manual wrinkler popping.
+Autofrenzy	Like Autoclick, but only during click frenzies. Allows higher value if system can't handle high-speed Autoclick always.
+Autoclick GC	Automatically clicks all golden and wrath cookies as soon as they appear.
+Autoclick Reindeer	Instantly clicks reindeer when they appear.
+Auto Fortune	Instantly clicks fortunes in the news ticker. Consider disabling during active play, as some fortunes are best saved for later.
+Auto Buying Options
+Option	Description
+Autobuy	Automates all purchases except upgrades in the vault or buildings above set limits. Blacklists/research may pause purchases for optimal play.
+Other Upgrades	Buys upgrades that don’t directly boost CpS (which Autobuy would otherwise skip).
+Auto Blacklist	Disables the selected blacklist once its goal is achieved.
+Blacklist	Choose restrictions for Speedrun/Hardcore achievements, Grandmapocalypse, or to block all building purchases.
+Mine/Factory Limit	Caps mines/factories (used by Auto-Godzamok). Recommended: ~500 for mid-game, 800+ for late game (factories usually 50–100 less than mines).
+Pastemode	Ignores efficiency and buys as many buildings as possible. Not recommended.
+Other Automation Options
+Option	Description
+Auto Bulkbuy	Sets bulk buy mode after ascending (does not persist after reload).
+Auto Buy All Upgrades	Repeatedly buys all upgrades until at least one prestige level is earned.
+Auto-ascend	Automatically ascends when reaching a set number of new HCs or when prestige doubles.
+Ascending during combo	Prevents auto-ascend during large combos (above minimum Frenzy).
+Autopop Wrinklers	Pops wrinklers automatically, except during Halloween/Easter if you still need event drops.
+Save Shiny Wrinklers	Protects shiny wrinklers from being popped and prevents ending the Grandmapocalypse.
+Autoharvest Sugar Lump	Harvests ripe sugar lumps automatically, with optional Rigidel swap for early harvest.
+Auto-Dragon's Curve	Swaps to Dragon's Curve aura (and optionally Reality Bending) when harvesting lumps for a higher chance of unusual lumps.
+Sugar Baking Guard	Prevents automated lump spending if it would drop your lump count below 100 (to preserve Sugar Baking bonus).
+Auto-Golden Switch	Toggles Golden Switch on for click frenzies and off afterward.
+Auto-Godzamok	Sells mines/factories during click frenzies if Godzamok is slotted, then rebuys up to the cap.
+Auto-Banking	Upgrades bank office level as soon as possible.
+Auto-Broker	Hires stock brokers if the next Autobuy is a building and funds allow.
+Auto-Loans	Takes loans automatically during click frenzies if certain conditions are met.
+Pantheon Options
+Option	Description
+Auto Pantheon	Automatically slots selected gods. If a god is set for multiple slots, only the highest slot is used.
+Auto-Cyclius	Periodically swaps Cyclius between slots for maximum bonus. Works best if other Pantheon slots are filled with different gods. If Supreme Intellect aura is active, uses a modified schedule.
+Grimoire Options
+Option	Description
+Wizard Tower Cap	Sets a mana cap for spellcasting. 37 is best for single FTHOF casting; 81–100 for double casting. Values above 100 waste mana and time.
+Auto Cast / Double Cast FTHOF / 100% Consistency Combo	Choose one auto-casting method (see details elsewhere in the README). Only the lowest enabled option is active.
+Auto Sugar Frenzy	Buys Sugar Frenzy with a lump during the first big combo of an ascension (if you have 101+ lumps and Sugar Baking Guard is active). You can set a minimum frenzy threshold.
+Auto Sweet	Experimental: rapidly ascends and casts spells to farm sugar lumps. Only disable via console. Do not use unless you know how.
+Dragon Options
+Option	Description
+Dragon Upgrading	Buys dragon upgrades as soon as possible, ignoring chains.
+Dragon Petting	Rapidly pets the dragon until all drops are unlocked for the ascension.
+Dragon Auras	Sets desired auras in order (Aura 1 in slot 1, Aura 2 in slot 2).
+Auto Dragon Orbs	If Dragon Orbs aura is active and Godzamok is not slotted, repeatedly sells Yous to spawn golden cookies.
+You Limit	Caps the number of Yous bought to avoid losing all cookies to Auto Dragon Orbs.
+Season Options
+Option	Description
+Default Season	Sets the default season if all drops from other seasons are unlocked. Disables Auto-Buy to avoid overpaying.
+Free Season	Overrides Default Season to stay in the base season (Christmas/Business Day or all seasons).
+Auto-Easter Switch	Switches to Easter during Cookie Storms if you still need eggs.
+Auto-Halloween Switch	Switches to Halloween if you still need spooky biscuits and wrinklers are present.
+Bank Options
+All bank options add a reserve to the next Autobuy purchase, so you never drop below the set amount. The highest active bank is used.
+
+Option	Description
+SE Bank	Keeps half the cost of your most expensive building in reserve (always on if auto-casting SE).
+Harvesting bank	Keeps enough cookies in reserve to maximize plant harvests (e.g., Bakeberries).
+Harvesting during CpS multiplier	Increases the harvesting bank if you want to harvest during frenzies or other multipliers.
+Manual minimal bank	Stores set minutes of CpS in the bank before doing any purchase
+Other Options
+Option	Description
+Shortcuts	Enables keyboard shortcuts:
+• 'a': toggle autobuy
+• 'b': show building spread
+• 'c': toggle auto-GC
+• 'e': show export string
+• 'r': reset window
+• 's': manual save
+• 'w': wrinkler info
+GC Clicked percentage	Sets the assumed percentage of golden cookies clicked for efficiency calculations. Leave at default unless you know what you’re doing.
+Display Options
+Option	Description
+Show Missed GCs	Displays missed golden cookie clicks in the info panel.
+Number Display	Choose how numbers are shown:
+• RAW: plain numbers
+• FULL: full names (e.g., "3.753 trillion")
+• INITIALS: short names (e.g., "3.753T")
+• SI Units: SI prefixes (up to 1e33)
+• SCIENTIFIC: scientific notation (e.g., 6.3e12)
+Infobox	Shows next purchase and active frenzies in the milk window (as text, graphics, or both).
+Logging	Logs mod actions to the console (except Autobuy purchases). Disabling may improve performance.
+Purchase Log	Logs every purchase and resulting CpS.
+Frame Rate	Adjusts the game’s speed.
+Tracking	Tracks stats over time for graphing. May slow the game or use lots of memory if left on.
+Recommended	Sets all options to recommended defaults for mid/late game. Forces a save and reload. Warning: Resets all options.
+Auto Cast and Combos
+Frozen Cookies offers several ways to automate spell casting in the Grimoire minigame. The available methods range from simple auto-casting to advanced combos that maximize cookie gains. Combo methods always take priority over simpler auto-cast options.
+
+General Spellcasting Logic:
+
+If the next spell is 'Sweet' (free Sugar Lump), Frozen Cookies will always cast Force the Hand of Fate (FTHOF) next, if you have enough mana.
+If the next spell is Clot or Ruin cookies and you are under a timed debuff (like Clot), it will cast Stretch Time to shorten the debuff.
+If the next spell is Clot or Ruin cookies and you are not under a timed debuff, it will cast Haggler's Charm instead, to avoid a negative effect.
+If a Golden Cookie is on screen and the next FTHOF spell is a backfire, it will wait until the cookie is clicked or expires before casting.
+Auto Cast Options
+Conjure Baked Goods: Automatically casts Conjure Baked Goods whenever possible.
+
+Force the Hand of Fate (Simple): Casts FTHOF as soon as you have enough mana. If a minimum Frenzy is set, it waits for that Frenzy before casting.
+
+Force the Hand of Fate (Smart): Like the simple method, but with extra logic:
+
+If the next spell is Click Frenzy, it waits for a Frenzy or Dragon Harvest (plus a Building Special) to be active for the full duration.
+If Reaper of Fields aura is active, both Frenzy and Dragon Harvest must be active.
+If the next spell is Elder Frenzy or Cursed Finger, it waits for a Click Frenzy or Dragonflight to be active for the full duration.
+FTHOF (Click and Building Specials Only): Like the smart method, but only casts when the next spell is a Click or Building Special. All other spells are replaced with Haggler's Charm.
+
+Spontaneous Edifice: Sells one You, then casts Spontaneous Edifice to try for a free building. Not useful after 400+ of each building.
+
+Haggler's Charm: Always casts Haggler's Charm, regardless of outcome. Useful for rapid spell casting.
+
+Combo Options
+Double Cast FTHOF: Replaces all other auto-cast methods. Looks for a combo of click frenzies and building specials, then double-casts FTHOF for a huge boost. If no combo is available, casts Haggler's Charm instead.
+
+Possible combos include:
+
+Stored Click Frenzy and Elder Frenzy plus a natural Frenzy or Dragon Harvest and a Building Special.
+Stored Click Frenzy and a Building Special plus a natural Frenzy or Dragon Harvest and another Building Special.
+Two stored Building Specials plus a natural Frenzy or Dragon Harvest and any click frenzy (Click Frenzy, Dragonflight, or Elder Frenzy).
+With Reaper of Fields aura, both Frenzy and Dragon Harvest must be active.
+Mana requirements for double casting (by Wizard Tower level):
+
+Level 1–4: 81 mana
+Level 5: 83 mana
+Level 6: 88 mana
+Level 7: 91 mana
+Level 8: 93 mana
+Level 9: 96 mana
+Level 10: 98 mana
+Setting max mana to 100 is recommended for all levels. Never upgrade Wizard Towers beyond level 10 for this combo.
+
+100% Consistency Combo: An advanced endgame combo that automates the FTHOF double cast and adds extra steps for maximum effect. Requires:
+
+Wizard Towers at level 10 with at least 98 max mana
+At least 1 sugar lump (101+ recommended for Sugar Baking bonus)
+Fully upgraded dragon (two aura slots)
+At least 1 god swap, or Godzamok in Diamond and Mokalsium in Ruby
+Whiskerblooms unlocked in the garden (all plants will be harvested, including Juicy Queenbeets)
+For best results, disable mine and factory caps in Frozen Cookies settings. While active, the combo will ignore wrath cookies (they are likely to be clots).
+
+Reference: 100% Consistency combo details
+
+Auto Sweet
+Not a spell combo, but an experimental feature. When enabled, Auto Sweet will repeatedly ascend until a grimoire seed with 'Sweet' (free Sugar Lump) appears in the first 10 spells, then cast Haggler's Charm until Sweet is cast. It then disables itself.
+
+Warning: Once Auto Sweet is enabled, it can only be turned off in the browser console with the following code:
+
+FrozenCookies.autosweet = 0
+It will auto-disable after casting Sweet. Note: On Steam, there is no way to disable Auto Sweet once enabled except by waiting for it to finish.
+
+Efficiency: What Does It Mean?
+Frozen Cookies uses a custom efficiency formula to decide what your next optimal purchase should be. The goal is to maximize your progress by balancing cost and the resulting increase in cookies per second (CpS).
+
+The current efficiency formula is:
+
+
+                     cost    cost
+Efficiency = 1.15 \* ----- + -----
+                     CpS     ΔCpS
+
+Where:
+
+cost = price of the item (building or upgrade)
+CpS = your current cookies per second
+ΔCpS = the increase in CpS from the purchase
+This formula is based on the idea that, given two possible purchases (A and B), purchase A is better if:
+
+
+a.cost    b.cost        b.cost    a.cost
+------- + ----------- < ------- + -----------
+CpS       a.CpS+CpS     CpS       b.CpS+CpS
+
+Originally, the formula was simply (cost/CpS + cost/ΔCpS). However, after extensive simulations (thanks to Vandalite), it was found that multiplying the first term by 1.15 slightly improves long-term efficiency.
+
+For Golden Cookies, a simpler cost/ΔCpS formula is used to determine when to start saving up a "bank" for Lucky payouts, since building up the bank itself increases your effective CpS over time.
+
+These formulas may be updated if better algorithms are discovered. There is also ongoing work to simplify efficiency values into easy-to-understand percentages for users.
+
+Comparison chart: Cookie Monster uses the simpler (cost/ΔCpS) formula, which is less efficient than either Frozen Cookies method.
+
+Information about Frozen Cookies Data
+This section explains the data shown in the Frozen Cookies menu:
+
+Autobuy Information
+Next Purchase: The item (building or upgrade) that Frozen Cookies recommends as your next optimal purchase. If autobuy is enabled, this is what will be bought next.
+Building Chain to: Shown only if the optimal purchase is an upgrade with unmet prerequisites. This displays the final upgrade, while "Next Purchase" shows the prerequisite to buy first.
+Time until completion: How long it will take, at your current CpS (cookies per second), to afford the Next Purchase. This includes any required Golden Cookie bank.
+Time until chain completion: If building toward a chain, this shows the time needed to buy all prerequisites and the target upgrade.
+Cost: The price of the Next Purchase.
+Golden Cookie Bank: The amount of cookies Frozen Cookies recommends keeping on hand to maximize Golden Cookie rewards.
+Base Δ CpS: The raw increase in displayed CpS from the Next Purchase, including all bonuses.
+Full Δ CpS: The estimated effective CpS increase, combining the Base Δ CpS and the change in Golden Cookie value.
+Purchase Efficiency: The calculated efficiency of the Next Purchase, based on Frozen Cookies’ formula. This may look worse for chains until all prerequisites are bought.
+Chain Efficiency: The efficiency of the entire chain (if applicable). Note: This does not account for CpS increases from buying prerequisites, so it may underestimate true efficiency.
+Golden Cookie Efficiency: The efficiency of saving a bank of 10× the maximum Golden Cookie value, to maximize gains from Golden Cookie clicks.
+Golden Cookie Information
+Current Average Cookie Value: The average value of Golden Cookies with your current CpS, bank, and upgrades. If this is at its maximum, it will be marked as (Max).
+Max Lucky Cookie Value: The highest possible value from a Lucky! Golden Cookie, based on your upgrades (typically 8400× CpS with Get Lucky, or 1200× CpS without).
+Cookie Bank Required for Max Lucky: The number of cookies you need to have on hand to get the maximum Lucky! payout (Max Lucky Cookie Value × 10).
+Estimated Cookie CpS: An estimate of the effective CpS you’d gain by clicking every Golden Cookie. If Autoclick GC is off, this will be 0.
+Golden Cookie Clicks: The total number of Golden Cookies you’ve clicked.
+Missed Golden Cookie Clicks: The number of Golden Cookies that appeared but were not clicked before disappearing.
+Last Golden Cookie Effect: The internal name of the last Golden Cookie effect you received.
+Total Recorded Frenzy Time: The total time (while Frozen Cookies was loaded) spent in a Frenzy.
+Total Recorded Non-Frenzy Time: The total time (while Frozen Cookies was loaded) spent not in a Frenzy.
+Heavenly Chips Information
+HC Now: The number of Heavenly Chips you currently own.
+HC After Reset: The number of Heavenly Chips you would have if you reset now.
+Cookies to next HC: The number of cookies needed to earn one more Heavenly Chip after reset.
+Estimated time to next HC: How long it will take, at your current CpS, to earn another Heavenly Chip after reset.
+Time since last HC: How long it has been since you last gained a Heavenly Chip.
+Time to get last HC: The actual time it took to earn your most recent Heavenly Chip (including bonuses and frenzies).
+Average HC Gain/hr: Your average rate of earning Heavenly Chips per hour since the last reset.
+Previous Average HC Gain/hr: The average rate for the previous Heavenly Chip, for comparison.
+Other Information
+Base CpS: Your CpS when no Frenzy is active. Marked with (*) if this is your current CpS.
+Frenzy CpS: Your CpS during a Frenzy. Marked with (*) if this is your current CpS.
+Estimated Effective CpS: An estimate of your average CpS over time, including Golden Cookie effects. If Autoclick GC is off, this matches Base CpS.
+Game Started: Time since your most recent reset.
+Internal Information
+This table lists every purchase Frozen Cookies is currently considering.
+
+Efficiency: The calculated efficiency value for each purchase. If Δ CpS is negative, this will be Infinity. Lower numbers are better.
+Cost: The price of the purchase or the total cost for a chain.
+Δ CpS: The total CpS change from the purchase, including estimated changes from Golden Cookies. This can be negative for some upgrades (like Elder Covenant).
+Original Contact info and credits
+The below info is from upstream.
+
+Discord
+For developers / code intended behavior purposes only. https://discord.gg/Cpw8csuypT (link invalid as of 2023)
+
+Contact Us!
+Everyone who is contributing to this project can be found at some time or another on the Cookie Clicker IRC.
+
+Server: irc.gamesurge.net
+
+Channel: #ccdev or #dashnet
+
+Special Thanks
+From the Cookie Clicker IRC, thanks to the following users:
+
+Bryanarby, for continuing development and update compatibility
+Vandalite, for tons of calculations and other general help with the underlying math
+Code14715, for excessively helpful amounts of testing
+Eearslya, for constantly nagging me to add more non-cheat-y features
+Saeldur, for helping make the timers suck less
+Icehawk78, for writing this section and being a conceited ass
+Other people who I've temporarily forgotten and will add later
